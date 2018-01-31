@@ -2,10 +2,15 @@
   "name": "tenpoint",
   "version": "1.0.0",
   "description": "tenpoint",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0",
+    "rotate-matrix": "0.0.3"
+  }
 }
