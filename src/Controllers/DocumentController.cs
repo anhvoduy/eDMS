@@ -76,7 +76,7 @@ namespace eDMS.Controllers
             return Ok(Summaries);
         }
 
-        // GET api/status/sharepoint
+        // GET api/document/sharepoint
         [HttpGet("sharepoint")]
         public IActionResult GetSharePoint()
         {
