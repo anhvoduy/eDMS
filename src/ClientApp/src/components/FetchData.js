@@ -48,7 +48,7 @@ export class FetchData extends Component {
         <h1 id="tabelLabel" >Weather forecast</h1>
         <p>This component demonstrates fetching data from the server.</p>
         <div>{contents}</div>
-        <p>Connnected to SharePoint Site : {(data && data.web_title) ? data.web_title : ''} - {(data && data.list_count) ? data.list_count : 0}</p>
+        <p>connnected to sharepoint site : {(data && data.web_title) ? data.web_title : ''} - {(data && data.list_count) ? data.list_count : 0}</p>
       </div>
     );
   }
