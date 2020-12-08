@@ -5,12 +5,13 @@ export class FetchData extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {forecasts: [], loading: true, data: null};
+    this.state = { forecasts: [], loading: true, data: null, empList: null};
   }
 
   componentDidMount() {
     this.populateWeatherData();
     this.populateSharePointData();
+    this.populateEmployeeData();
   }
 
   static renderForecastsTable(forecasts) {
@@ -65,5 +66,12 @@ export class FetchData extends Component {
     const res = await response.json();
     console.log(res.data.result);
     this.setState({ data: res.data.result });
+  }
+
+  async populateEmployeeData() {
+    const response = await fetch("https://development365.sharepoint.com/sites/develop/_api/web/lists/GetByTitle('Employees')/items?&$top=10&$expand=AttachmentFiles");
+    const res = await response.json();
+    console.log(res.data.result);
+    this.setState({ empList: res.data.result });
   }
 }
