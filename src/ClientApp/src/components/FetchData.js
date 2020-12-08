@@ -5,11 +5,12 @@ export class FetchData extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { forecasts: [], loading: true };
+    this.state = {forecasts: [], loading: true, data: null};
   }
 
   componentDidMount() {
     this.populateWeatherData();
+    this.populateSharePointData();
   }
 
   static renderForecastsTable(forecasts) {
@@ -41,12 +42,13 @@ export class FetchData extends Component {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
       : FetchData.renderForecastsTable(this.state.forecasts);
-
+    let { data } = this.state;
     return (
       <div>
         <h1 id="tabelLabel" >Weather forecast</h1>
         <p>This component demonstrates fetching data from the server.</p>
-        {contents}
+        <div>{contents}</div>
+        <p>Connnected to SharePoint Site : {(data && data.web_title) ? data.web_title : ''} - {(data && data.list_count) ? data.list_count : 0}</p>
       </div>
     );
   }
@@ -54,6 +56,14 @@ export class FetchData extends Component {
   async populateWeatherData() {
     const response = await fetch('weatherforecast');
     const data = await response.json();
+    //console.log(data);
     this.setState({ forecasts: data, loading: false });
+  }
+
+  async populateSharePointData() {
+    const response = await fetch('api/document/sharepoint');
+    const res = await response.json();
+    console.log(res.data.result);
+    this.setState({ data: res.data.result });
   }
 }
