@@ -8,6 +8,7 @@
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <UserSecretsId>e820354b-343a-4e2e-a664-7fddb9671bde</UserSecretsId>
+    <Copyright>voduyanh1984@gmail.com</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
