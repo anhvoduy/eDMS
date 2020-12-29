@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
@@ -84,7 +85,7 @@ namespace eDMS.Controllers
             {
                 var siteInfo = ConnectSharePoint();
                 var siteUrl = _sharepointConfiguration.Value.SiteUrl;
-                var appInfo = _sharepointConfiguration.Value.AppInfo;
+                var appInfo = ConfigurationManager.AppSettings["AppInfo"];
                 return Ok(new { Code = "200", Message = "Success at: " + siteUrl + " - " + appInfo, Data = siteInfo });
 
             }
