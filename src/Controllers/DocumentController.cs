@@ -82,8 +82,10 @@ namespace eDMS.Controllers
         {
             try
             {
-                var result = ConnectSharePoint();
-                return Ok(new { Code = "200", Message = "Success", Data = result });
+                var siteInfo = ConnectSharePoint();
+                var siteUrl = _sharepointConfiguration.Value.SiteUrl;
+                var appInfo = _sharepointConfiguration.Value.AppInfo;
+                return Ok(new { Code = "200", Message = "Success at: " + siteUrl + " - " + appInfo, Data = siteInfo });
 
             }
             catch (Exception ex)
