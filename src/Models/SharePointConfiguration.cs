@@ -9,7 +9,6 @@ namespace eDMS.Models
     {
         public string AADAppId { get; set; }
 
-        public string AppInfo { get; set; }
         public string SiteUrl { get; set; }
 
         public string Username { get; set; }
